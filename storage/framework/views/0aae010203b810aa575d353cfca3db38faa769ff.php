@@ -25,7 +25,7 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td><?php echo e($wisata->id); ?></td>
+                                        <th>ID</th><td><?php echo e($wisata->id_wisatas); ?></td>
                                     </tr>
                                     <tr>
                                     <th> Nama </th><td> <?php echo e($wisata->nama); ?> </td>

@@ -29,7 +29,7 @@
 </div>
 <div class="form-group <?php echo e($errors->has('ltd') ? 'has-error' : ''); ?>">
     <label for="ltd" class="control-label"><?php echo e('Ltd'); ?></label>
-    <input class="form-control" name="ltd" type="text" id="ltd" value="<?php echo e(isset($wisata->ltd) ? $wisata->ltd : ''); ?>" >
+    <input class="form-control" name="ltd" type="text" id="ltd" value="<?php echo e(isset($wisata->ltd) ? $wisata->ltd : ''); ?>">
     <?php echo $errors->first('ltd', '<p class="help-block">:message</p>'); ?>
 
 </div>

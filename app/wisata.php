@@ -18,7 +18,7 @@ class wisata extends Model
     *
     * @var string
     */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_wisatas';
 
     /**
      * Attributes that should be mass-assignable.

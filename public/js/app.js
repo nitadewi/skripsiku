@@ -29,7 +29,7 @@ getLocationMap.addLayer(osm2)
 // initial hidden marker, and update on click
 const getLocationMapMarker = L.marker([0, 0]).addTo(getLocationMap);
 // listen click on map
-if (latitude == 0) {
+if (latitude == -3.3622209) {
 getLocationMap.on('click', function(e) {
     // set default lat and lng to 0,0
     const {lat = 0, lng = 0} = e.latlng;

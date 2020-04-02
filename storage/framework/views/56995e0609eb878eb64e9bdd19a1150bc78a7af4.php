@@ -37,10 +37,10 @@
                                         <td><?php echo e($loop->iteration); ?></td>
                                         <td><?php echo e($item->nama); ?></td><td><?php echo e($item->foto); ?></td><td><?php echo e($item->alamat); ?></td>
                                         <td>
-                                            <a href="<?php echo e(url('/admin/wisatas/' . $item->id)); ?>" title="View wisata"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="<?php echo e(url('/admin/wisatas/' . $item->id . '/edit')); ?>" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="<?php echo e(url('/admin/wisatas/' . $item->id_wisatas)); ?>" title="View wisata"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="<?php echo e(url('/admin/wisatas/' . $item->id_wisatas . '/edit')); ?>" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                            <form method="POST" action="<?php echo e(url('/admin/wisatas' . '/' . $item->id)); ?>" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="<?php echo e(url('/admin/wisatas' . '/' . $item->id_wisatas)); ?>" accept-charset="UTF-8" style="display:inline">
                                                 <?php echo e(method_field('DELETE')); ?>
 
                                                 <?php echo e(csrf_field()); ?>

@@ -25,7 +25,7 @@
 </div>
 <div class="form-group {{ $errors->has('ltd') ? 'has-error' : ''}}">
     <label for="ltd" class="control-label">{{ 'Ltd' }}</label>
-    <input class="form-control" name="ltd" type="text" id="ltd" value="{{ isset($wisata->ltd) ? $wisata->ltd : ''}}" >
+    <input class="form-control" name="ltd" type="text" id="ltd" value="{{ isset($wisata->ltd) ? $wisata->ltd : ''}}">
     {!! $errors->first('ltd', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('lngtd') ? 'has-error' : ''}}">

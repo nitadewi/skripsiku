@@ -5,10 +5,20 @@
         </div>
 
         <div class="card-body">
-            <ul class="nav" role="tablist">
+            <ul>
                 <li role="presentation">
                     <a href="{{ url('/admin') }}">
                         Dashboard
+                    </a>
+                    </li>
+                    <li>
+                    <a href="{{ url('/tambahrute') }}">
+                        Tambah Rute
+                    </a>
+                    </li>
+                    <li>
+                    <a href="{{ url('/register') }}">
+                        Tambah Admin
                     </a>
                 </li>
             </ul>

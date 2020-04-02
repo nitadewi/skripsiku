@@ -13,14 +13,14 @@ class CreateWisatasTable extends Migration
     public function up()
     {
         Schema::create('wisatas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_wisata');
+            $table->string('nama');
+            $table->string('foto');
+            $table->string('alamat');
+            $table->text('keterangan');
+            $table->string('ltd');
+            $table->string('lngtd');
             $table->timestamps();
-            $table->string('nama')->nullable();
-            $table->string('foto')->nullable();
-            $table->string('alamat')->nullable();
-            $table->text('keterangan')->nullable();
-            $table->string('ltd')->nullable();
-            $table->string('lngtd')->nullable();
             });
     }
 

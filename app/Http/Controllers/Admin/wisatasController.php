@@ -40,6 +40,17 @@ class wisatasController extends Controller
         return view('admin.wisatas.index', compact('wisatas'));
     }
 
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'nama' => ['required', 'string'],
+            'alamat' => ['required', 'string'],
+            'keterangan' => ['required', 'string'],
+            'ltd' => ['required', 'string'],
+            'lngtd' => ['required', 'string'],
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

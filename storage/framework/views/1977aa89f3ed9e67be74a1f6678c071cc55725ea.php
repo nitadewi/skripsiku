@@ -1,9 +1,10 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+    <?php echo $__env->make('admin.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="col-md-9">
             <div class="card">
-                <div class="card-header"><?php echo e(__('Register')); ?></div>
+                <div class="card-header"><?php echo e(__('Daftar Admin')); ?></div>
 
                 <div class="card-body">
                     <form method="POST" action="<?php echo e(route('register')); ?>">
@@ -44,28 +45,6 @@ endif; ?>" name="username" value="<?php echo e(old('username')); ?>" required au
                                 <?php if ($errors->has('username')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('username'); ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
-                                <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right"><?php echo e(__('E-Mail Address')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control <?php if ($errors->has('email')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('email'); ?> is-invalid <?php unset($message);
-if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email">
-
-                                <?php if ($errors->has('email')) :
-if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('email'); ?>
                                     <span class="invalid-feedback" role="alert">
                                         <strong><?php echo e($message); ?></strong>
                                     </span>

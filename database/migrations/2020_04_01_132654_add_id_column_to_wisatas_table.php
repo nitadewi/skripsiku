@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class AddIdColumnToWisatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('username');
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('wisatas', function (Blueprint $table) {
+            $table->renameColumn('id', 'id_wisatas');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::table('wisatas', function (Blueprint $table) {
+            $table->renameColumn('id_wisatas', 'id');
+        });
     }
 }

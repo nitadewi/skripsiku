@@ -39,10 +39,10 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td><td>{{ $item->foto }}</td><td>{{ $item->alamat }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/wisatas/' . $item->id) }}" title="View wisata"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/wisatas/' . $item->id . '/edit') }}" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/wisatas/' . $item->id_wisatas) }}" title="View wisata"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/wisatas/' . $item->id_wisatas . '/edit') }}" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                            <form method="POST" action="{{ url('/admin/wisatas' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/admin/wisatas' . '/' . $item->id_wisatas) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete wisata" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
