@@ -1,19 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            @include('admin.sidebar')
+<div class="col-lg-7">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        Edit wisata #{{ $wisata->nama }}
+        </div>
+        <div class="panel-body">
+        <div id="mapL" style="height: 500px"> </div>
+       
+        </div>
+        </div>
+</div>
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Edit wisata #{{ $wisata->id }}</div>
-                    <div class="card-body">
-                        <a href="{{ url('/admin/wisatas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
-                        @if ($errors->any())
+<div class="col-lg-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Input Data Tempat Wisata
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <!-- form input data--->
+            
+            @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -21,17 +29,18 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/admin/wisatas/' . $wisata->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('wisatas.update', $wisata->id_wisatas)}}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            {{ method_field('PUT') }}
                             {{ csrf_field() }}
 
                             @include ('admin.wisatas.form', ['formMode' => 'edit'])
 
                         </form>
 
-                    </div>
-                </div>
-            </div>
+            <!-- form input data--->
         </div>
     </div>
+</div>
+ 
+
 @endsection

@@ -1,19 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            @include('admin.sidebar')
+<div class="col-lg-7">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Lokasi Tempat Wisata
+        </div>
+        <div class="panel-body">
+        <div id="mapL" style="height: 500px"> </div>
+       
+        </div>
+        </div>
+</div>
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Create New wisata</div>
-                    <div class="card-body">
-                        <a href="{{ url('/admin/wisatas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
-                        @if ($errors->any())
+<div class="col-lg-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Input Data Tempat Wisata
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <!-- form input data--->
+            
+            @if ($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -28,9 +36,8 @@
 
                         </form>
 
-                    </div>
-                </div>
-            </div>
+            <!-- form input data--->
         </div>
     </div>
+</div>
 @endsection

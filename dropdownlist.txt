@@ -1,0 +1,5 @@
+<select class=" browser-default form-control ">
+   @foreach($item as $item)
+        <option value="{{ $item->nama_node }}">{{ $item->nama_node }}</option>
+         @endforeach
+</select>

@@ -5,8 +5,10 @@
 </div>
 <div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
     <label for="foto" class="control-label">{{ 'Foto' }}</label>
-    <input class="form-control" name="foto" type="file" id="foto" value="{{ isset($wisata->foto) ? $wisata->foto : ''}}" >
+    <input class="form-control" name="foto" type="file" id="foto">
     {!! $errors->first('foto', '<p class="help-block">:message</p>') !!}
+    <img src="{{ isset($wisata->foto) ? url('/images/'.$wisata->foto) : ''}}" class="img-thumbnail" width="100" />
+                        <input type="hidden" name="hidden_image" value="{{ isset($wisata->foto) ? $wisata->foto : ''}}" />
 </div>
 <div class="form-group {{ $errors->has('alamat') ? 'has-error' : ''}}">
     <label for="alamat" class="control-label">{{ 'Alamat' }}</label>
@@ -18,11 +20,7 @@
     <textarea class="form-control" rows="5" name="keterangan" type="textarea" id="keterangan" >{{ isset($wisata->keterangan) ? $wisata->keterangan : ''}}</textarea>
     {!! $errors->first('keterangan', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group">
-<div class="map-embed" id="map-get-location">
-</div>
-<strong id="l"></strong>
-</div>
+
 <div class="form-group {{ $errors->has('ltd') ? 'has-error' : ''}}">
     <label for="ltd" class="control-label">{{ 'Ltd' }}</label>
     <input class="form-control" name="ltd" type="text" id="ltd" value="{{ isset($wisata->ltd) ? $wisata->ltd : ''}}">

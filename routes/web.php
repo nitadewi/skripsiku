@@ -11,13 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BerandaController@index');
+Route::get('/kontak', 'BerandaController@kontak');
+Route::get('/carirute', 'BerandaController@carirute');
+Route::get('/read/{id}', 'BerandaController@show');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('/admin/tambahnode', 'Admin\\NodeController');
+Route::resource('/tambahnode', 'Admin\\NodeController');
+
+
+
 Route::resource('/admin/wisatas', 'Admin\\wisatasController');
 Route::resource('/admin', 'Admin\\wisatasController');
+Route::resource('/tambahrute', 'Admin\\TambahRuteController');
+
+Route::get('/tampilpeta', 'Admin\\TambahRuteController@tampilpeta');
+Route::get('/buatrute', 'Admin\\TambahRuteController@index');

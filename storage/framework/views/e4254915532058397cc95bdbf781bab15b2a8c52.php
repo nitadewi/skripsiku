@@ -6,9 +6,11 @@
 </div>
 <div class="form-group <?php echo e($errors->has('foto') ? 'has-error' : ''); ?>">
     <label for="foto" class="control-label"><?php echo e('Foto'); ?></label>
-    <input class="form-control" name="foto" type="file" id="foto" value="<?php echo e(isset($wisata->foto) ? $wisata->foto : ''); ?>" >
+    <input class="form-control" name="foto" type="file" id="foto">
     <?php echo $errors->first('foto', '<p class="help-block">:message</p>'); ?>
 
+    <img src="<?php echo e(isset($wisata->foto) ? url('/images/'.$wisata->foto) : ''); ?>" class="img-thumbnail" width="100" />
+                        <input type="hidden" name="hidden_image" value="<?php echo e(isset($wisata->foto) ? $wisata->foto : ''); ?>" />
 </div>
 <div class="form-group <?php echo e($errors->has('alamat') ? 'has-error' : ''); ?>">
     <label for="alamat" class="control-label"><?php echo e('Alamat'); ?></label>
@@ -22,11 +24,7 @@
     <?php echo $errors->first('keterangan', '<p class="help-block">:message</p>'); ?>
 
 </div>
-<div class="form-group">
-<div class="map-embed" id="map-get-location">
-</div>
-<strong id="l"></strong>
-</div>
+
 <div class="form-group <?php echo e($errors->has('ltd') ? 'has-error' : ''); ?>">
     <label for="ltd" class="control-label"><?php echo e('Ltd'); ?></label>
     <input class="form-control" name="ltd" type="text" id="ltd" value="<?php echo e(isset($wisata->ltd) ? $wisata->ltd : ''); ?>">

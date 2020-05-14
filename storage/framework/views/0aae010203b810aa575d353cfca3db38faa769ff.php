@@ -9,9 +9,9 @@
                     <div class="card-body">
 
                         <a href="<?php echo e(url('/admin/wisatas')); ?>" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="<?php echo e(url('/admin/wisatas/' . $wisata->id . '/edit')); ?>" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="<?php echo e(url('/admin/wisatas/' . $wisata->id_wisatas . '/edit')); ?>" title="Edit wisata"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                        <form method="POST" action="<?php echo e(url('admin/wisatas' . '/' . $wisata->id)); ?>" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="<?php echo e(url('admin/wisatas' . '/' . $wisata->id_wisatas)); ?>" accept-charset="UTF-8" style="display:inline">
                             <?php echo e(method_field('DELETE')); ?>
 
                             <?php echo e(csrf_field()); ?>

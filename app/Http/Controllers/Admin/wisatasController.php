@@ -46,6 +46,7 @@ class wisatasController extends Controller
         return Validator::make($data, [
             'nama' => ['required', 'string'],
             'alamat' => ['required', 'string'],
+            'foto' => ['required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
             'keterangan' => ['required', 'string'],
             'ltd' => ['required', 'string'],
             'lngtd' => ['required', 'string'],
@@ -58,6 +59,7 @@ class wisatasController extends Controller
      */
     public function create()
     {
+
         return view('admin.wisatas.create');
     }
 
@@ -70,10 +72,9 @@ class wisatasController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
 
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
+        $request->validate([
+            'foto'         =>  'required|image|max:2048'
         ]);
 
         $post = new wisata;
@@ -113,11 +114,8 @@ class wisatasController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit($id)
-    {
-        $wisata = wisata::findOrFail($id);
-
-        return view('admin.wisatas.edit', compact('wisata'));
+    public function edit($id) {
+            return view('admin.wisatas.edit', ['wisata' => wisata::findOrFail($id)]);
     }
 
     /**
@@ -130,13 +128,38 @@ class wisatasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $requestData = $request->all();
-        
-        $wisata = wisata::findOrFail($id);
-        $wisata->update($requestData);
 
-        return redirect('admin/wisatas')->with('flash_message', 'wisata updated!');
+        $image_name = $request->hidden_image;
+        $image = $request->file('foto');
+        if($image != '')
+        {
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+        }
+        else
+        {
+            $request->validate([
+                'nama' => ['required', 'string'],
+                'alamat' => ['required', 'string'],
+                'keterangan' => ['required', 'string'],
+                'ltd' => ['required', 'string'],
+                'lngtd' => ['required', 'string'],
+            ]);
+        }
+        
+        
+        $form_data = array(
+            'nama'       =>   $request->nama,
+            'foto'       =>   $image_name,
+            'alamat'     =>   $request->alamat,
+            'keterangan' => $request->keterangan,
+            'ltd' => $request->ltd,
+            'lngtd' => $request->lngtd,
+            
+        );
+        wisata::where('id_wisatas',$id)->update($form_data);
+
+        return redirect()->to('/admin')->with('flash_message', 'wisata updated!');
     }
 
     /**

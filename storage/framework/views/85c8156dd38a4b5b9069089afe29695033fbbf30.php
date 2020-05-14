@@ -1,17 +1,25 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
-        <div class="row">
-            <?php echo $__env->make('admin.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="col-lg-7">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Lokasi Tempat Wisata
+        </div>
+        <div class="panel-body">
+        <div id="mapL" style="height: 500px"> </div>
+       
+        </div>
+        </div>
+</div>
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Create New wisata</div>
-                    <div class="card-body">
-                        <a href="<?php echo e(url('/admin/wisatas')); ?>" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
-
-                        <?php if($errors->any()): ?>
+<div class="col-lg-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Input Data Tempat Wisata
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <!-- form input data--->
+            
+            <?php if($errors->any()): ?>
                             <ul class="alert alert-danger">
                                 <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li><?php echo e($error); ?></li>
@@ -27,11 +35,10 @@
 
                         </form>
 
-                    </div>
-                </div>
-            </div>
+            <!-- form input data--->
         </div>
     </div>
+</div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\bismillah\resources\views/admin/wisatas/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\bismillah\resources\views/admin/wisatas/create.blade.php ENDPATH**/ ?>
