@@ -12,9 +12,18 @@
 </div>
 <div class="form-group {{ $errors->has('lngtd') ? 'has-error' : ''}}">
     <label for="lngtd" class="control-label">{{ 'Lngtd' }}</label>
-    <input class="form-control" name="lngtd" type="text" id="lngtd" value="{{ isset($node->lngtd) ? $node->lngtd : ''}}" >
+    <input class="form-control" name="lngtd" type="text" id="lngtd" value="{{ isset($node->lngtd) ? $node->lngtd : ''}}">
      {!! $errors->first('lngtd', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group">
 <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
+
+@section('script')
+<script>
+<?php foreach($liat as $li) { 
+    echo "L.marker(['$li->ltd', '$li->lngtd']).addTo(map)
+    .bindPopup('$li->nama_node').openPopup();";
+ } ?>
+</script>
+@endsection

@@ -17,7 +17,7 @@
             @endif
 
                         <form method="POST" action="{{ url('/admin/tambahrute') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-
+                        
                             {{ csrf_field() }}
                             @include ('admin.tambahrute.form', ['formMode' => 'create'])
                         </form>
@@ -41,6 +41,7 @@
                             <tr>
                             <th width="10px">No</th>
                             <th>Jalur</th>
+                            <th>Jarak</th>
                             <th>Action</th>
                             </tr>
             </thead>
@@ -49,10 +50,11 @@
                                          
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_node }}</td>
+                                <td>{{ $item->node_awal }} - {{ $item->node_tujuan }}</td>
+                                <th>{{ $item->bobot }}</th>
                                 <td>
-                                    <a href="{{ url('/admin/tambahnode/' . $item->id_node . '/edit') }}"class="btn btn-success btn-sm ">Edit</a>
-                                    <form method="POST" action="{{ url('/admin/tambahnode' . '/' . $item->id_node) }}" accept-charset="UTF-8" style="display:inline">
+                                    <a href="{{ url('/admin/tambahrute/' . $item->id_graph . '/edit') }}"class="btn btn-success btn-sm ">Edit</a>
+                                    <form method="POST" action="{{ url('/admin/tambahrute' . '/' . $item->id_graph) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete node" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

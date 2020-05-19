@@ -17,8 +17,9 @@ class NodeController extends Controller
     }
 
     public function index() {
-        $datas = node::orderBy('id_node', 'DESC')->paginate(10);
-        return view('admin.tambahnode.node')-> with('node', $datas);
+        $node = node::orderBy('id_node', 'DESC')->paginate(10);
+        $liat = node::all();
+        return view('admin.tambahnode.node', compact('node', 'liat'));
     }
 
     protected function validator(array $data)

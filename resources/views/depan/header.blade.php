@@ -4,7 +4,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{ url('/') }}">Beranda</a></li>
-        <li><a href="{{ url('/carirute') }}">Cari Rute</a></li>
+        <li><a href="{{ url('/daftarwisata') }}">Daftar Wisata</a></li>
         <li><a href="{{ url('/kontak') }}">Hubungi Kami</a></li>
       </ul>
     </div>

@@ -53,6 +53,7 @@
     <!-- Maps -->
     <link rel="stylesheet" href="{{ asset('leaflet.css')}}" />
     <script src="{{ asset('/leaflet.js')}}"></script>
+    <script src="https://npmcdn.com/leaflet-geometryutil"> </script>
     
 
     
@@ -222,11 +223,10 @@
                         responsive: true
                 });
             });
-          
 
         </script>
         
-  
+        @yield ('script')
 
   </body>
 </html>

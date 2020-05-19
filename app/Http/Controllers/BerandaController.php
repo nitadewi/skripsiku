@@ -59,8 +59,9 @@ class BerandaController extends Controller
         return view('depan.kontak');
     }
 
-    public function carirute(){
-        return view('depan.carirute');
+    public function listwisata(){
+        $datas = wisata::orderBy('id_wisatas', 'DESC')->paginate(10);
+        return view('depan.daftarwisata')->with('datas', $datas);;
     }
 
     /**

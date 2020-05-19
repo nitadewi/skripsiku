@@ -1,4 +1,42 @@
+@extends('layouts.main')
+@section('content')
+
+<div class="col-lg-7">
+<a href="{{ url('/tambahnode') }}" class="btn btn-success btn-sm">Kembali</a>
+<div>
+<br>
+</div>
+<div class="panel panel-primary">
+        <div class="panel-heading">
+          Peta
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <!-- form input data--->
+            @if ($errors->any())
+            <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+            @endif
+                        <form method="POST" action="{{ route('tambahrute.update', $datas->id_graph)}}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+                            @include ('admin.tambahrute.form', ['formMode' => 'edit'])
+                        </form>
+
+            <!-- form input data--->
+        </div>
+  
+</div>
+</div>
+
 <div class="col-lg-5">
+<div>
+<br>
+<br>
+<br>
+</div>
 <div class="panel panel-primary">
         <div class="panel-heading">
         Daftar Node
@@ -33,3 +71,8 @@
         </div>
 </div>
 </div>
+
+
+
+
+@endsection
