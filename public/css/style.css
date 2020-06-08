@@ -8,9 +8,18 @@
  * Made By MaterializeCSS.com
  */
 
+.logo {
+    display: inline-block;
+    height: 100%;
+}
+
+.logo>img {
+    vertical-align: middle
+}
+
 nav ul a,
 nav .brand-logo {
-    color: #444;
+    color: rgb(255, 255, 255);
 }
 
 p {
@@ -40,11 +49,17 @@ p {
     #index-banner .section {
         top: 10%;
     }
+    .navbar-material .nav-wrapper .logo img {
+        height: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     #index-banner .section {
         top: 0;
+    }
+    .navbar-material .nav-wrapper .logo img {
+        height: 20px;
     }
 }
 
@@ -61,5 +76,28 @@ footer.page-footer {
 }
 
 #mapku {
-    height: 180px;
+    height: 500px;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+h5 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+    font-family: 'Abril Fatface', serif;
+}
+
+.tulisan {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+nav {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: medium;
+    color: #ffca28;
 }

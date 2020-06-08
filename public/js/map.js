@@ -22,6 +22,7 @@ marker.on('dragend', function(event) {
     }).bindPopup(position).update();
     $("#ltd").val(position.lat);
     $("#lngtd").val(position.lng).keyup();
+
 });
 
 $("#ltd, #lngtd").change(function() {
@@ -30,6 +31,7 @@ $("#ltd, #lngtd").change(function() {
         draggable: 'true'
     }).bindPopup(position).update();
     map.panTo(position);
+
 });
 
 map.addLayer(marker);

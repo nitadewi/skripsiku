@@ -11,10 +11,11 @@
 <div class="form-group {{ $errors->has('node_tujuan') ? 'has-error' : ''}}">
     <label for="node_tujuan" class="control-label">{{ 'Tujuan' }}</label>
     <select class=" browser-default form-control" name="node_tujuan" id="tujuan" onchange="setTujuan()">
-        <option value="">Pilih Node Tujuan</option>
+        <option value="" disabled selected>Pilih Node Tujuan</option>
         @foreach($t as $t)
         <option value="{{  $t->nama_node }}" data-graph="{{ $t->ltd }}, {{ $t->lngtd }}">{{ $t->nama_node }}</option>
         @endforeach
+
 </select>
     {!! $errors->first('node_tujuan', '<p class="help-block">:message</p>') !!}
 </div>
@@ -25,7 +26,7 @@
     <input class="form-control" name="jalur" type="text" id="jalur" value="{{ isset($datas->jalur) ? $datas->jalur : ''}}">
     {!! $errors->first('ltd', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('lngtd') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('bobot') ? 'has-error' : ''}}">
     <label for="bobot" class="control-label">{{ 'jarak' }}</label>
     <input class="form-control" name="bobot" type="text" id="bobot" value="{{ isset($datas->bobot) ? $datas->bobot : ''}}" >
      {!! $errors->first('lngtd', '<p class="help-block">:message</p>') !!}
@@ -47,15 +48,20 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(Mymap);
 
+
+var distance, awal;
 var a;
 function setAwal(){
   a = $('#awal').find('option:selected').attr('data-graph');
+  awal = $('#awal').val();
   a = a.split(',').map(Number);
 }
 
 var b;
+var finish;
 function setTujuan(){
   b = $('#tujuan').find('option:selected').attr('data-graph');
+  finish = $('#tujuan').val();
   b = b.split(',').map(Number);
 
     var polylinePoints = [ 
@@ -73,9 +79,18 @@ function setTujuan(){
              // zoom the map to the polyline
              Mymap.fitBounds(polyline.getBounds());
             
-             var distance = $('#bobot').val(L.GeometryUtil.distance(Mymap, a, b));
-             var hasil = $('#jalur').val(JSON.stringify(polyline.toGeoJSON()));
+             distance = L.GeometryUtil.distance(Mymap, a, b);
+             distance = Math.round(distance)
+
+             var jalur 	= '{"start": "'+awal+'", "finish": "' + finish + '", "distance": ' + distance + '}';
+			
+             var hasil = $('#jalur').val(jalur);
+             $('#bobot').val(distance);
+             
             }
+
+
+           
    
 </script>
 

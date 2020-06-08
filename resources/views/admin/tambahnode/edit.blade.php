@@ -22,6 +22,7 @@
                         <form method="POST" action="{{ route('tambahnode.update', $datas->id_node)}}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                         {{ method_field('PUT') }}
                             {{ csrf_field() }}
+                            
                             @include ('admin.tambahnode.form', ['formMode' => 'edit'])
                         </form>
 

@@ -55,7 +55,8 @@
                                          
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_node }}</td>
+                                <td>{{ $item->node_awal }} - {{ $item->node_tujuan }}</td>
+                                <th>{{ $item->bobot }}</th>
                                 <td>
                                     <a href="{{ url('/admin/tambahnode/' . $item->id_node . '/edit') }}"class="btn btn-success btn-sm ">Edit</a>
                                     <form method="POST" action="{{ url('/admin/tambahnode' . '/' . $item->id_node) }}" accept-charset="UTF-8" style="display:inline">

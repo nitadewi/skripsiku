@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\node;
+use App\wisata;
 use App\Http\Controllers\Controller;
 
 
@@ -19,7 +20,8 @@ class NodeController extends Controller
     public function index() {
         $node = node::orderBy('id_node', 'DESC')->paginate(10);
         $liat = node::all();
-        return view('admin.tambahnode.node', compact('node', 'liat'));
+        $graph = wisata::all();
+        return view('admin.tambahnode.node', compact('node', 'liat', 'graph'));
     }
 
     protected function validator(array $data)
@@ -28,6 +30,7 @@ class NodeController extends Controller
             'nama_node' => ['required', 'string'],
             'ltd' => ['required', 'string'],
             'lngtd' => ['required', 'string'],
+            'jalur' => ['required','string'],
         ]);
     }
 
@@ -44,9 +47,11 @@ class NodeController extends Controller
     }
     
     public function edit($id) {
+
+        $liat = node::all();
         $coba = node::orderBy('id_node', 'DESC')->paginate(10);
-        $datas = node::find($id);
-        return view('admin.tambahnode.edit', compact('datas', 'coba'));
+        $datas = node::findOrFail($id);
+        return view('admin.tambahnode.edit', compact('datas', 'coba', 'liat'));
     }
 
 
@@ -56,12 +61,14 @@ public function update(Request $request, $id)
         'nama_node' => ['required', 'string'],
         'ltd' => ['required', 'string'],
         'lngtd' => ['required', 'string'],
+        'jalur' => ['required','string'],
     ]);
 
     $form_data = array(
         'nama_node' =>$request->nama_node,
         'ltd' => $request->ltd,
         'lngtd' => $request->lngtd,
+        'jalur' => $request->jalur,
         
     );
     node::where('id_node',$id)->update($form_data);

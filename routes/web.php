@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'BerandaController@index');
+Route::get('/graph', 'BerandaController@graph');
+Route::get('/autocomplete', 'BerandaController@dataAjax');
+
 Route::get('/kontak', 'BerandaController@kontak');
 Route::get('/daftarwisata', 'BerandaController@listwisata');
 Route::get('/read/{id}', 'BerandaController@show');
@@ -33,3 +36,4 @@ Route::resource('/admin', 'Admin\\wisatasController');
 
 Route::get('/tampilpeta', 'Admin\\TambahRuteController@tampilpeta');
 Route::get('/buatrute', 'Admin\\TambahRuteController@index');
+

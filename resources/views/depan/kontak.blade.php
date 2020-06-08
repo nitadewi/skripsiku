@@ -1,4 +1,9 @@
 @extends('depan.main')
+
+@section('header')
+    @include('depan.header')
+@endsection
+
 @section('content')
 	<div class="row">
 	<div class="col s12">

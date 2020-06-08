@@ -1,92 +1,82 @@
-<?php $__env->startSection('content'); ?>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"><?php echo e(__('Login')); ?></div>
+<head>
 
-                <div class="card-body">
-                    <form method="POST" action="<?php echo e(route('login')); ?>">
-                        <?php echo csrf_field(); ?>
+      <!--Import Google Icon Font-->
+    <title><?php echo e(__('Login')); ?></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
 
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Username')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="username" class="form-control <?php if ($errors->has('username')) :
+<div class="row">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+            <div class="card-action white text" style="text-align: center">
+            <img src="<?php echo e(asset('foto/logo.png')); ?>" style="height: 100px" alt="logo">
+                <h3><?php echo e(__('Login')); ?></h3>
+            </div>
+            <form method="POST" action="<?php echo e(route('login')); ?>">
+                <?php echo csrf_field(); ?>
+            <div class="card-content">
+                <div class="form-field">
+                    <label for="username"><?php echo e(__('Username')); ?></label>
+                    <input type="text" id="username"class="form-control <?php if ($errors->has('username')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('username'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>" name="username" value="<?php echo e(old('username')); ?>" required autocomplete="username" autofocus>
-
-                                <?php if ($errors->has('username')) :
+                    
+                    <?php if ($errors->has('username')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('username'); ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
-                                <?php unset($message);
+                    <span class="invalid-feedback" role="alert">
+                    <strong><?php echo e($message); ?></strong>
+                    </span>
+                    <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>
-                            </div>
-                        </div>
+                </div><br>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Password')); ?></label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control <?php if ($errors->has('password')) :
+                <div class="form-field">
+                    <label for="password"><?php echo e(__('Password')); ?></label>
+                    <input type="password" id="password" class="form-control <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('password'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>" name="password" required autocomplete="current-password">
 
-                                <?php if ($errors->has('password')) :
+                    <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('password'); ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
-                                <?php unset($message);
+                    <span class="invalid-feedback" role="alert">
+                        <strong><?php echo e($message); ?></strong>
+                    </span>
+                    <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>
-                            </div>
-                        </div>
+                </div><br>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
+                <div class="form-field">
+                    <input type="checkbox"  name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
+                    <label for="remember"> <?php echo e(__('Remember Me')); ?></label>
+                </div><br>
 
-                                    <label class="form-check-label" for="remember">
-                                        <?php echo e(__('Remember Me')); ?>
-
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <?php echo e(__('Login')); ?>
-
-                                </button>
-
-                                <?php if(Route::has('password.request')): ?>
-                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
-                                        <?php echo e(__('Forgot Your Password?')); ?>
-
-                                    </a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </form>
+                <div class="form-field">
+                 <button class="btn-large waves-effect waves-dark" style="width:100%"> <?php echo e(__('Login')); ?></button>
                 </div>
+                <div>
+                    <br>
+                </div>
+                <div class="form-field">
+                 <?php if(Route::has('password.request')): ?>
+                 <a class="btn btn-link" style="width:100%" href="<?php echo e(route('password.request')); ?>">
+                                    <?php echo e(__('Forgot Your Password?')); ?>
+
+                 </a>
+                 <?php endif; ?>
+                </div><br>
             </div>
+            </form>
         </div>
     </div>
-</div>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\bismillah\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\bismillah\resources\views/auth/login.blade.php ENDPATH**/ ?>

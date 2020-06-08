@@ -78,7 +78,7 @@
               <li>
                 <h1 class="logo-wrapper">
                   <a href="index.html" class="brand-logo darken-1">
-                    <img src="{{ asset('template/images/logo/materialize-logo.png')}}" alt="materialize logo">
+                    <img src="{{ asset('foto/logo.png')}}" alt="logo">
                     <span class="logo-text hide-on-med-and-down">Dinas Pariwisata Kab Nabire</span>
                   </a>
                 </h1>
@@ -150,6 +150,12 @@
                   <a href="{{ url('/tambahrute') }}" class="waves-effect waves-cyan">
                       <i class="material-icons">add_location</i>
                       <span class="nav-text">Tambah Rute Wisata</span>
+                    </a>
+                </li>
+                <li class="bold">
+                  <a href="{{ url('/register') }}" class="waves-effect waves-cyan">
+                      <i class="material-icons">add</i>
+                      <span class="nav-text">Tambah Admin</span>
                     </a>
                 </li>
                 </ul>

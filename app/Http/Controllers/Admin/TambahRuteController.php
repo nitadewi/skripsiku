@@ -22,8 +22,10 @@ class TambahRuteController extends Controller
     public function index() {
         $graph = node::all();
         $t = node::all();
+        $w = Wisata::all();
+        $q = Wisata::all();
         $datas = TambahRute::orderBy('id_graph', 'DESC')->paginate(10);
-        return view('admin.tambahrute.buatrute', compact('datas', 'graph','t'));
+        return view('admin.tambahrute.buatrute', compact('datas', 'graph','t', 'w', 'q'));
     }
 
     protected function validator(array $data)
@@ -55,8 +57,10 @@ class TambahRuteController extends Controller
     
     public function edit($id) {
         $coba = TambahRute::orderBy('id_graph', 'DESC')->paginate(10);
-        $datas = TambahRute::find($id);
-        return view('admin.tambahrute.edit', compact('datas', 'coba'));
+        $graph = node::all();
+        $t = node::all();
+        $datas = TambahRute::findOrFail($id);
+        return view('admin.tambahrute.edit', compact('datas', 'coba', 'graph','t'));
     }
 
 
