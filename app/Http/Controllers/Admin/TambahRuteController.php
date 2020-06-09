@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\TambahRute;
 use App\node;
-use App\Wisata;
+use App\wisata;
 use Illuminate\Http\Request;
 
 
