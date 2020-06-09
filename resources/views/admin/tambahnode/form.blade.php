@@ -56,7 +56,7 @@ function setNama(){
   $('#lngtd').val(lngtd);
 
 
-var jalur 	= '"'+nama+'":{"coord":[' +ltd+ ','+ lngtd+']}';
+var jalur 	= '{"coord":[' +ltd+ ','+ lngtd+']}';
 var hasil = $('#jalur').val(jalur);
 }
 
@@ -67,7 +67,7 @@ function getInputValue(){
             ltd = document.getElementById("ltd").value;
             lngtd = document.getElementById("lngtd").value;
             
-            var jalur 	= '"'+nama+'":{"coord":[' +ltd+ ','+ lngtd+']}';
+            var jalur 	= '{"coord":[' +ltd+ ','+ lngtd+']}';
             var hasil = $('#jalur').val(jalur);
         }
 </script>

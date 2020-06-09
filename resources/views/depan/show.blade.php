@@ -152,7 +152,6 @@ $(document).ready(function(){
     type:'get',
     url: 'http://127.0.0.1:8000/autocomplete',
     success:function(response){
-      console.log(response);
 
       var custWisata = response;
       var dataWisata= {}
@@ -169,16 +168,12 @@ $(document).ready(function(){
 
 var url = "http://127.0.0.1:8000/graph";
   $.get(url, function(data, status){
-        
-
-
-var basicGraph = data.graph;
-var nodes = data.node;
+      var basicGraph = data.graph;
+      var nodes = data.node;
 
 showNodes(nodes);
 function showNodes(nodes){
   for(var a in nodes){
-  
   }
 }
 
@@ -188,8 +183,6 @@ function showNodes(nodes){
           var graph = readyGraph(basicGraph);
           start = document.getElementById('autocomplete-input-awal').value;
           finish = document.getElementById('autocomplete-input-tujuan').value;
-          alert(finish)
-        
 
         var shortestPath = solve(graph,start,finish);
         showPath(start,shortestPath.path);
