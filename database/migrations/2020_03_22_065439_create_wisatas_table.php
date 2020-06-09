@@ -13,7 +13,7 @@ class CreateWisatasTable extends Migration
     public function up()
     {
         Schema::create('wisatas', function (Blueprint $table) {
-            $table->increments('id_wisata');
+            $table->increments('id_wisatas');
             $table->string('nama');
             $table->string('foto');
             $table->string('alamat');
