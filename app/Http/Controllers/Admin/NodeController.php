@@ -51,7 +51,8 @@ class NodeController extends Controller
         $liat = node::all();
         $coba = node::orderBy('id_node', 'DESC')->paginate(10);
         $datas = node::findOrFail($id);
-        return view('admin.tambahnode.edit', compact('datas', 'coba', 'liat'));
+        $graph = wisata::all();
+        return view('admin.tambahnode.edit', compact('datas', 'coba', 'liat','graph'));
     }
 
 

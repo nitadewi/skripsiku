@@ -174,6 +174,7 @@ var url = "http://127.0.0.1:8000/graph";
 showNodes(nodes);
 function showNodes(nodes){
   for(var a in nodes){
+    L.circleMarker(nodes[a].coord,{radius:5,color:"#0000ff",fillOpacity:1}).bindPopup(a+' Point').addTo(map);
   }
 }
 

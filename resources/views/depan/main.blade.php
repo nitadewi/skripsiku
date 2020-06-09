@@ -22,10 +22,10 @@
       <link type="text/css"  rel="stylesheet" href="{{ asset('css/style.css')}}" media="screen,projection"/>
       <!--Maps-->
       <link rel="stylesheet" href="{{ asset('leaflet.css')}}" />
-    <script src="{{ asset('/leaflet.js')}}"></script>
+      <script src="{{ asset('/leaflet.js')}}"></script>
    
     <script src="https://npmcdn.com/leaflet-geometryutil"> </script>
-    <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+  
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

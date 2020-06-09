@@ -43,13 +43,19 @@
 @section('script')
 <script type='text/javascript'>
 
+
+
 var Mymap = L.map('mapku').setView([-3.362858, 135.503811], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(Mymap);
 
+<?php foreach($liat as $li) { 
+    echo "L.marker(['$li->ltd', '$li->lngtd']).addTo(Mymap)
+    .bindPopup('$li->nama_node').openPopup();";
+ } ?>
 
-var distance, awal;
+var awal, akhir, jarak;
 var a;
 function setAwal(){
   a = $('#awal').find('option:selected').attr('data-graph');
@@ -58,10 +64,9 @@ function setAwal(){
 }
 
 var b;
-var finish;
 function setTujuan(){
   b = $('#tujuan').find('option:selected').attr('data-graph');
-  finish = $('#tujuan').val();
+  akhir = $('#tujuan').val();
   b = b.split(',').map(Number);
 
     var polylinePoints = [ 
@@ -74,23 +79,29 @@ function setTujuan(){
              };
 
              var polyline = new L.Polyline(polylinePoints, polylineOptions);
-             Mymap.addLayer(polyline);                        
+             Mymap.addLayer(polyline);       
+             var previousPoint;  
+             
+             polyline.getLatLngs().forEach(function (latLng) {
+                 if (previousPoint) {
+                    jarak = previousPoint.distanceTo(latLng).toFixed(2) 
+                      }
+                    previousPoint = latLng;
+                    });
              
              // zoom the map to the polyline
              Mymap.fitBounds(polyline.getBounds());
             
-             distance = L.GeometryUtil.distance(Mymap, a, b);
-             distance = Math.round(distance)
+             jarak = Math.round(jarak)
 
-             var jalur 	= '{"start": "'+awal+'", "finish": "' + finish + '", "distance": ' + distance + '}';
+             var jalur 	= '{"start": "'+awal+'", "finish": "' + akhir + '", "distance": ' + jarak + '}';
 			
              var hasil = $('#jalur').val(jalur);
-             $('#bobot').val(distance);
+             $('#bobot').val(jarak);
              
             }
 
 
-           
    
 </script>
 
