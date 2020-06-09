@@ -22,8 +22,8 @@ class TambahRuteController extends Controller
     public function index() {
         $graph = node::all();
         $t = node::all();
-        $w = Wisata::all();
-        $q = Wisata::all();
+        $w = wisata::all();
+        $q = wisata::all();
         $liat = node::all();
         $datas = TambahRute::orderBy('id_graph', 'DESC')->paginate(10);
         return view('admin.tambahrute.buatrute', compact('datas', 'graph','t', 'w', 'q','liat'));
