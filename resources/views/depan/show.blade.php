@@ -158,6 +158,7 @@ $(document).ready(function(){
       for (var i=0; i< custWisata.length; i++) {
         dataWisata[custWisata[i].nama]=null;
       }
+      console.log(response)
       $('input.autocomplete').autocomplete({
        data: dataWisata,
        });
