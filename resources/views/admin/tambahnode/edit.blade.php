@@ -69,7 +69,7 @@
                             @endforeach
                         </tbody>
             </table>
-            {{ $coba->links() }}
+            {!! $coba->render() !!}
         </div>
 </div>
 </div>

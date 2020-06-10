@@ -63,7 +63,7 @@ class BerandaController extends Controller
     }
 
     public function listwisata(){
-        $datas = wisata::orderBy('id_wisatas', 'DESC')->paginate(10);
+        $datas = wisata::orderBy('id_wisatas', 'DESC')->paginate(12);
         return view('depan.daftarwisata')->with('datas', $datas);;
     }
 

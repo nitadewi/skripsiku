@@ -62,6 +62,7 @@
                             @endforeach
                         </tbody>
             </table>
+            {!! $node->render() !!}
         </div>
 </div>
 </div>

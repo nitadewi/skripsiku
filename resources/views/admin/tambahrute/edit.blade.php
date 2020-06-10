@@ -68,8 +68,9 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        {!! $coba->render() !!}
             </table>
-            {{ $coba->links() }}
+            
         </div>
 </div>
 </div>

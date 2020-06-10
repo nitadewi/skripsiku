@@ -41,6 +41,7 @@
                             @endforeach
                         </tbody>
                      </table>
+                     {!! $wisatas->render() !!}
                      </div>
                 </div>
         </div>

@@ -46,7 +46,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            {{ $wisata->links() }}
+                            {!! $wisata->render() !!}
                         </div>
 
                     </div>
