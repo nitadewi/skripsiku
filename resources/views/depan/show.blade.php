@@ -150,7 +150,7 @@ map.keyboard.disable();
 $(document).ready(function(){
   $.ajax({
     type:'get',
-    url: 'http://127.0.0.1:8000/autocomplete',
+    url: 'http://dijkstra-nita.herokuapp.com/',
     success:function(response){
 
       var custWisata = response;
@@ -166,7 +166,7 @@ $(document).ready(function(){
   });
     
 
-var url = "http://127.0.0.1:8000/graph";
+var url = "http://dijkstra-nita.herokuapp.com/graph";
   $.get(url, function(data, status){
       var basicGraph = data.graph;
       var nodes = data.node;
