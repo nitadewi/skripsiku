@@ -150,7 +150,7 @@ map.keyboard.disable();
 $(document).ready(function(){
   $.ajax({
     type:'get',
-    url: 'http://dijkstra-nita.herokuapp.com/',
+    url: 'http://dijkstra-nita.herokuapp.com/autocomplete',
     success:function(response){
 
       var custWisata = response;
@@ -158,7 +158,6 @@ $(document).ready(function(){
       for (var i=0; i< custWisata.length; i++) {
         dataWisata[custWisata[i].nama]=null;
       }
-      console.log(response)
       $('input.autocomplete').autocomplete({
        data: dataWisata,
        });
