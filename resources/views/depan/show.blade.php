@@ -184,25 +184,23 @@ function showNodes(nodes){
           var graph = readyGraph(basicGraph);
           start = document.getElementById('autocomplete-input-awal').value;
           finish = document.getElementById('autocomplete-input-tujuan').value;
-
-        var shortestPath = solve(graph,start,finish);
-        showPath(start,shortestPath.path);
-        showNodes(nodes);
-        showStartFinish(start,finish);
+          
+          var shortestPath = solve(graph,start,finish);
+          showPath(start,shortestPath.path);
+          showNodes(nodes);
+          showStartFinish(start,finish);
 
         function showStartFinish(start,finish){
           L.circleMarker(nodes[start].coord,{radius:8,color:"#00ff00",fillOpacity:1}).bindPopup(start+'  Start Point').addTo(map);
-          L.circleMarker(nodes[finish].coord,{radius:8,color:"#ff0000",fillOpacity:1}).bindPopup(finish+'  Finish Point').addTo(map);
-        }
+          L.circleMarker(nodes[finish].coord,{radius:8,color:"#ff0000",fillOpacity:1}).bindPopup(finish+'  Finish Point').addTo(map);}
 
     function showPath(start,path){
-          var lineCoords = [];
-          lineCoords.push(nodes[start].coord);
+      var lineCoords = [];
+      lineCoords.push(nodes[start].coord);
               for(var i=0;i<path.length;i++){
                   var nodeName =path[i];
-                  lineCoords.push(nodes[nodeName].coord);
-              }
-        var polyline = L.polyline(lineCoords, {color: 'blue'}).addTo(map);
+                  lineCoords.push(nodes[nodeName].coord);}
+      var polyline = L.polyline(lineCoords, {color: 'blue'}).addTo(map);
           }
 
    
