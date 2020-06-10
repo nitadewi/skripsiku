@@ -18,7 +18,7 @@ class NodeController extends Controller
     }
 
     public function index() {
-        $node = node::orderBy('id_node', 'DESC')->paginate(10);
+        $node = node::orderBy('id_node', 'DESC')->all();
         $liat = node::all();
         $graph = wisata::all();
         return view('admin.tambahnode.node', compact('node', 'liat', 'graph'));
@@ -49,7 +49,7 @@ class NodeController extends Controller
     public function edit($id) {
 
         $liat = node::all();
-        $coba = node::orderBy('id_node', 'DESC')->paginate(10);
+        $coba = node::orderBy('id_node', 'DESC')->all();
         $datas = node::findOrFail($id);
         $graph = wisata::all();
         return view('admin.tambahnode.edit', compact('datas', 'coba', 'liat','graph'));
