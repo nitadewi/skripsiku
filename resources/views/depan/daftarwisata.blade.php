@@ -32,6 +32,6 @@
     </div>
     @endforeach
 </div>
-{{ $data->links() }}
+{!! $datas->render() !!}
 </div> 
 @endsection

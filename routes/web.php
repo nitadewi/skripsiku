@@ -16,7 +16,7 @@ Route::get('/graph', 'BerandaController@graph');
 Route::get('/autocomplete', 'BerandaController@dataAjax');
 
 Route::get('/kontak', 'BerandaController@kontak');
-Route::get('/daftarwisata', 'BerandaController@listwisata')->name('data');;
+Route::get('/daftarwisata', 'BerandaController@listwisata');
 Route::get('/read/{id}', 'BerandaController@show');
 
 Auth::routes();
