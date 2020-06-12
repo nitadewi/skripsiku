@@ -67,10 +67,9 @@
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody>
-                        {!! $coba->render() !!}
+                        </tbody>  
             </table>
-            
+            {!! $coba->render() !!}
         </div>
 </div>
 </div>

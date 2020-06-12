@@ -11,7 +11,7 @@
 
 <script>
 
- var Mymap = L.map('mapku').setView([-3.362858, 135.503811], 13);
+ var Mymap = L.map('mapku').setView([-3.362858, 135.503811], 10);
 
  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
