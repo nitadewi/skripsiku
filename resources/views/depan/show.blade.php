@@ -32,7 +32,6 @@
     <div class="container">
         <div class="row center">
           <h3 style="color: #ffca28">Mau Kemana?</h3>
-          <p id="#jarak"></p>
           <div class="col s12 m4">
             <div class="input-field">
               <input type="text" id="autocomplete-input-awal" class="autocomplete">
@@ -202,15 +201,6 @@ function showNodes(nodes){
                   var nodeName =path[i];
                   lineCoords.push(nodes[nodeName].coord);}
       var polyline = L.polyline(lineCoords, {color: 'blue'}).addTo(map);
-
-      polyline.getLatLngs().forEach(function (latLng) {
-                 if (previousPoint) {
-                   var jarak = previousPoint.distanceTo(latLng).toFixed(2) 
-                      }
-                    previousPoint = latLng;
-                    });
-                    jarak = Math.round(jarak)
-                    $('#jarak').val(jarak);
           }
 
    
