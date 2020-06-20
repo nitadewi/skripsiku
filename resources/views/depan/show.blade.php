@@ -108,7 +108,7 @@
             <h2 class="center white-text"><i class="material-icons">location_on</i></h2>
             <h5 class="center">Alamat</h5>
 
-            <p class="light">Jalan Merdeka Nabire Papua</p>
+            <p class="light" style="text-align: center">Jalan Merdeka Nabire Papua</p>
           </div>
         </div>
 
@@ -117,7 +117,7 @@
             <h2 class="center white-text"><i class="material-icons">call</i></h2>
             <h5 class="center">Kontak</h5>
 
-            <p class="light">xxx-xxx-xxx-xxx</p>
+            <p class="light" style="text-align: center" >xxx-xxx-xxx-xxx</p>
           </div>
         </div>
 
