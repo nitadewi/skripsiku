@@ -11,7 +11,7 @@
       Kabupaten Nabire</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="/">Beranda</a></li>
         <li><a href="#wisata">Daftar Wisata</a></li>
         <li><a href="#hubungikami">Hubungi Kami</a></li>
       </ul>
@@ -108,7 +108,7 @@
             <h2 class="center white-text"><i class="material-icons">location_on</i></h2>
             <h5 class="center">Alamat</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light">Jalan Merdeka Nabire Papua</p>
           </div>
         </div>
 
@@ -117,7 +117,7 @@
             <h2 class="center white-text"><i class="material-icons">call</i></h2>
             <h5 class="center">Kontak</h5>
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <p class="light">xxx-xxx-xxx-xxx</p>
           </div>
         </div>
 

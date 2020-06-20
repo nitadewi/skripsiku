@@ -21,7 +21,7 @@ Route::get('/read/{id}', 'BerandaController@show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Route::resource('/admin/tambahnode', 'Admin\\NodeController');
 Route::resource('/tambahnode', 'Admin\\NodeController');
